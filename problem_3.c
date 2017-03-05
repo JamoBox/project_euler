@@ -22,6 +22,7 @@ int largest_pf(long n)
 {
     long n_factor = n;
     int largest_prime = 0;
+    if (is_prime(n)) return n;
     for (int i = 2; i <= n_factor; ++i) {
         if (is_prime(i) && (n % i == 0))
         {
