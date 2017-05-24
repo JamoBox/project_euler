@@ -5,6 +5,8 @@
 #define TRUE 1
 #define FALSE 0
 
+typedef int bool;
+
 int str_len(char* str);
 int is_palendrome(int n);
 
@@ -23,7 +25,7 @@ int str_len(char* str)
     return str_len;
 }
 
-int is_palendrome(int n)
+bool is_palendrome(int n)
 {
     int s_len;
     char str_n[64];
@@ -41,10 +43,23 @@ int is_palendrome(int n)
     return TRUE;
 }
 
+int find_multiples(int max) {
+
+    for (int i = max; i > 0; --i)
+    {
+        for (int j = max; j > 0; --j)
+        {
+            int sum = i * j;
+            if (is_palendrome(sum)) return sum;
+        }
+    }
+    return 0;
+}
+
 int main(void)
 {
-    int num = 12321;
-    is_palendrome(num);
+    int max = 9999;
+    printf("%d\n", find_multiples(max));
 
     return 0;
 }
